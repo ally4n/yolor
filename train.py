@@ -37,6 +37,7 @@ logger = logging.getLogger(__name__)
 
 try:
     import wandb
+    wandb = None
 except ImportError:
     wandb = None
     logger.info("Install Weights & Biases for experiment logging via 'pip install wandb' (recommended)")
@@ -119,7 +120,7 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
     scheduler = lr_scheduler.LambdaLR(optimizer, lr_lambda=lf)
     # plot_lr_scheduler(optimizer, scheduler, epochs)
 
-     Logging
+    Logging
     if wandb and wandb.run is None:
         opt.hyp = hyp  # add hyperparameters
         wandb_run = wandb.init(config=opt, resume="allow",
