@@ -126,6 +126,7 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
     #                           project='YOLOR' if opt.project == 'runs/train' else Path(opt.project).stem,
     #                           name=save_dir.stem,
     #                           id=ckpt.get('wandb_id') if 'ckpt' in locals() else None)
+    wandb = False
 
     # Resume
     start_epoch, best_fitness = 0, 0.0
