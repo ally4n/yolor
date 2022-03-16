@@ -36,6 +36,7 @@ logger = logging.getLogger(__name__)
 
 try:
     import wandb
+    wandb = None
 except ImportError:
     wandb = None
     logger.info("Install Weights & Biases for experiment logging via 'pip install wandb' (recommended)")
